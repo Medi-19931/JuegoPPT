@@ -1,18 +1,15 @@
-## Getting Started
+# Juego: Piedra, Papel y Tijera (Java)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Proyecto desarrollado para la evaluación de programación. Consiste en una aplicación de consola en Java que implementa el clásico juego de "Piedra, Papel y Tijera".
 
-## Folder Structure
+## Características principales
+- **Modo Solitario:** Duelo al mejor de 3 rondas entre el Jugador 1 y la Consola (generador aleatorio).
+- **Modo Multijugador:** Duelo local entre el Jugador 1 y el Jugador 2.
+- **Sistema de Estadísticas:** Registro global de partidas totales, desglose por modos y acumuladores de victorias por sesión.
+- **Historial de Rondas:** Uso de vectores (arrays) para almacenar y mostrar los resultados ronda a ronda de la última partida jugada.
+- **Control de Menús:** Navegación robusta mediante estructuras repetitivas (`do-while`) y condicionales (`if-else`).
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Instrucciones de uso
+1. Ejecuta la clase principal `App.java`.
+2. Selecciona una opción del menú interactivo (del 1 al 5).
+3. Sigue las instrucciones en pantalla para ingresar tus jugadas (1: Piedra, 2: Papel, 3: Tijera).

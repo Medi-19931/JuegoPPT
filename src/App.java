@@ -4,6 +4,12 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         //parte declarativa
+        // --- CÓDIGOS DE COLOR ANSI ---
+        final String RESET = "\u001B[0m";
+        final String ROJO = "\u001B[31m";
+        final String VERDE = "\u001B[32m";
+        final String AMARILLO = "\u001B[33m";
+        final String AZUL = "\u001B[34m";
         //CONTADOR GLOBAL
         final int MAXRONDAS=3;
         int partidasSolitario=0;
@@ -43,17 +49,17 @@ public class App {
         do { 
             System.out.println("");
             //menu
-            System.out.println("========================================");
-            System.out.println("        PIEDRA, PAPEL Y TIJERA");          
-            System.out.println("========================================");
+            System.out.println(AZUL + "========================================" + RESET);
+            System.out.println(AZUL + "        PIEDRA, PAPEL Y TIJERA          " + RESET);
+            System.out.println(AZUL + "========================================" + RESET);
             System.out.println("1. Solitario (Jugador 1 vs Consola)");
             System.out.println("2. Jugador 1 vs Jugador 2");
             System.out.println("3. Ver estadísticas de la sesión");
             System.out.println("4. Ver reglas e instrucciones");
-            System.out.println("========================================");
+            System.out.println(AZUL + "========================================" + RESET);
             System.out.println("5. Salir");
-            System.out.println("========================================");
-            System.out.print("\nIngrese la opcion deseada (solo un numero del  1 al 5): ");
+            System.out.println(AZUL + "========================================" + RESET);
+            System.out.print("\nIngrese la opcion deseada (solo un numero del 1 al 5): ");
             opcionMenu=scanner.nextInt();
 
             if (opcionMenu==1) {
@@ -62,10 +68,10 @@ public class App {
                 modoJuego=1;
                 System.out.println("\n");
                 System.out.println("\n");
-                System.out.println("----Biemvenido,MODO SOLITARIO----");
+                System.out.println(AMARILLO + "----Bienvenido, MODO SOLITARIO----" + RESET);
                 System.out.println("\n");
                 System.out.println("\n");
-                System.out.println("\n----------INICIO DE PARTIDA----------");
+                System.out.println(AMARILLO + "----------INICIO DE PARTIDA----------" + RESET);
                 rondasJ1=0;
                 rondasConsola=0;
 
@@ -79,7 +85,7 @@ public class App {
                     System.out.println("\n");
                     System.out.println("\n");
                     System.out.println("\n");
-                    System.out.println("\n---------RONDA "+(i+1)+"---------");
+                    System.out.println(AMARILLO + "---------RONDA " + (i + 1) + "---------" + RESET);
                     rondasConsola=rondasConsola+1;
                     rondasJ1=rondasJ1+1;
                     
@@ -87,7 +93,7 @@ public class App {
                     System.out.println("\n");
                     System.out.println("\n");
                     System.out.println("\n");
-                    System.out.println("---------TURNO DEL JUGADOR 1---------");
+                    System.out.println(VERDE + "---------TURNO DEL JUGADOR 1---------" + RESET);
                     System.out.println("\n|");
                     System.out.println("|");
                     System.out.println("v\n");
@@ -109,14 +115,14 @@ public class App {
                         System.out.println("\n");
                         System.out.println("\n");
                         System.out.println("\n");
-                        System.out.println("\n--------------TURNO CONSOLA--------------");
+                        System.out.println(ROJO + "--------------TURNO CONSOLA--------------" + RESET);
                         System.out.println("\n|");
                         System.out.println("|");
                         System.out.println("v\n");
 
                         //genera numeros enteros 1-3(jugada consola)
                         opcionRival =(int)(Math.random()*3)+1;
-                        System.out.println("Consola eligió: "+opciones[opcionRival-1]+"------------------");
+                        System.out.println(ROJO + "Consola eligió: " + opciones[opcionRival - 1] + "------------------" + RESET);
                         
                         
 
@@ -128,23 +134,23 @@ public class App {
                             if (opcionJ1==opcionRival) {
                                 //consola elije piedra
                                 empatesTotales=empatesTotales+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Resultado: Empate");
-                                System.out.println("------------------");
+                                System.out.println(AZUL + "\n------------------" + RESET);
+                                System.out.println(AZUL + "Resultado: Empate" + RESET);
+                                System.out.println(AZUL + "------------------" + RESET);
                                 
                             } else if (opcionRival==2) {
                                 //consola elije papel(papel gana contra piedra)
                                 victoriasConsola=victoriasConsola+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : CONSOLA");
-                                System.out.println("------------------");
+                                System.out.println(ROJO + "\n------------------" + RESET);
+                                System.out.println(ROJO + "Ganador : CONSOLA" + RESET);
+                                System.out.println(ROJO + "------------------" + RESET);
                                 
                             } else {
                                 //consola elije tijera(tijera pierde contra piedra)
                                 victoriasJ1=victoriasJ1+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR1");
-                                System.out.println("------------------");
+                                System.out.println(VERDE + "\n------------------" + RESET);
+                                System.out.println(VERDE + "Ganador : JUGADOR1" + RESET);
+                                System.out.println(VERDE + "------------------" + RESET);
                                 
                             }
 
@@ -154,23 +160,23 @@ public class App {
                            if (opcionJ1==opcionRival) {
                                 //consola elije papel
                                 empatesTotales=empatesTotales+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Resultado: Empate");
-                                System.out.println("------------------");
+                                System.out.println(AZUL + "\n------------------" + RESET);
+                                System.out.println(AZUL + "Resultado: Empate" + RESET);
+                                System.out.println(AZUL + "------------------" + RESET);
                                     
                             } else if (opcionRival==1) {
                                 //consola elije piedra (piedra pierde contra papel)
                                 victoriasJ1=victoriasJ1+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR1");
-                                System.out.println("------------------");
+                                System.out.println(VERDE + "\n------------------" + RESET);
+                                System.out.println(VERDE + "Ganador : JUGADOR1" + RESET);
+                                System.out.println(VERDE + "------------------" + RESET);
                                     
                             } else {
                                 //consola elije tijera(tijera gana contra papel)
                                 victoriasConsola=victoriasConsola+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : CONSOLA");
-                                System.out.println("------------------");
+                                System.out.println(ROJO + "\n------------------" + RESET);
+                                System.out.println(ROJO + "Ganador : CONSOLA" + RESET);
+                                System.out.println(ROJO + "------------------" + RESET);
                                     
                             }
                         
@@ -180,23 +186,23 @@ public class App {
                              if (opcionJ1==opcionRival) {
                                 //consola elige tijera
                                 empatesTotales=empatesTotales+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Resultado: Empate");
-                                System.out.println("------------------");
+                                System.out.println(AZUL + "\n------------------" + RESET);
+                                System.out.println(AZUL + "Resultado: Empate" + RESET);
+                                System.out.println(AZUL + "------------------" + RESET);
                                     
                             } else if (opcionRival==1) {
                                 //consola elije piedra (piedra gana contra tijera)
                                 victoriasConsola=victoriasConsola+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : CONSOLA");
-                                System.out.println("------------------");
+                                System.out.println(ROJO + "\n------------------" + RESET);
+                                System.out.println(ROJO + "Ganador : CONSOLA" + RESET);
+                                System.out.println(ROJO + "------------------" + RESET);
                                     
                             } else {
                                 //consola elije papel(papel piedre contra tijera)
                                 victoriasJ1=victoriasJ1+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR1");
-                                System.out.println("------------------");   
+                                System.out.println(VERDE + "\n------------------" + RESET);
+                                System.out.println(VERDE + "Ganador : JUGADOR1" + RESET);
+                                System.out.println(VERDE + "------------------" + RESET);
                             }
                             
                         } 
@@ -211,28 +217,28 @@ public class App {
                             System.out.println("v\n");
                     }
 
-                    System.out.println("========================================");
-                    System.out.println("               RESULTADOS");          
-                    System.out.println("========================================");
+                    System.out.println(AMARILLO + "========================================" + RESET);
+                    System.out.println(AMARILLO + "               RESULTADOS               " + RESET);
+                    System.out.println(AMARILLO + "========================================" + RESET);
                     System.out.printf("%-15s %6s %8s%n","EMPATE","JUGADOR1","CONSOLA");
                     System.out.printf("%-15d %6d %8d%n", empatesTotales, victoriasJ1, victoriasConsola);
 
                     if (victoriasJ1 < victoriasConsola) {
                         historialRondas[i] = 1;
-                        System.out.println("\n-----------------------------------");
-                        System.out.println("----------Victoria: Consola--------");
-                        System.out.println("-----------------------------------");
+                        System.out.println(ROJO + "\n-----------------------------------" + RESET);
+                        System.out.println(ROJO + "----------Victoria: Consola--------" + RESET);
+                        System.out.println(ROJO + "-----------------------------------" + RESET);
                     } else if (victoriasConsola < victoriasJ1){
                         historialRondas[i] = 2;
-                        System.out.println("\n-------------------------------------");
-                        System.out.println("----------Victoria: Jugador 1--------");
-                        System.out.println("-------------------------------------");
+                        System.out.println(VERDE + "\n-------------------------------------" + RESET);
+                        System.out.println(VERDE + "----------Victoria: Jugador 1--------" + RESET);
+                        System.out.println(VERDE + "-------------------------------------" + RESET);
                         
                     }else {
                         historialRondas[i] = 0;
-                        System.out.println("\n--------------------------");
-                        System.out.println("----------EMPATE----------");
-                        System.out.println("--------------------------");
+                        System.out.println(AZUL + "\n--------------------------" + RESET);
+                        System.out.println(AZUL + "----------EMPATE----------" + RESET);
+                        System.out.println(AZUL + "--------------------------" + RESET);
                     }
                     
                     
@@ -244,17 +250,17 @@ public class App {
                 victoriasGlobalesConsola = victoriasGlobalesConsola + victoriasConsola;
 
                 // GANADOR DEFINITIVO 
-                System.out.println("\n========================================");
-                System.out.println("       RESULTADO FINAL DE LA PARTIDA");          
-                System.out.println("========================================");
+                System.out.println(AMARILLO + "\n========================================" + RESET);
+                System.out.println(AMARILLO + "       RESULTADO FINAL DE LA PARTIDA    " + RESET);
+                System.out.println(AMARILLO + "========================================" + RESET);
                 if (victoriasJ1 < victoriasConsola) {
-                    System.out.println("¡La CONSOLA gana la partida!");
+                    System.out.println(ROJO + "¡La CONSOLA gana la partida!" + RESET);
                     resultadoFinal="Victoria CONSOLA";
                 } else if (victoriasConsola < victoriasJ1) {
-                    System.out.println("¡El JUGADOR 1 gana la partida!");
+                    System.out.println(VERDE + "¡El JUGADOR 1 gana la partida!" + RESET);
                     resultadoFinal="Victoria JUGADOR1";
                 } else {
-                    System.out.println("¡La partida termina en EMPATE global!");
+                    System.out.println(AZUL + "¡La partida termina en EMPATE global!" + RESET);
                     resultadoFinal="EMPATE";
                 }
                 
@@ -264,11 +270,11 @@ public class App {
                 modoJuego=2;
                 System.out.println("\n");
                 System.out.println("\n");
-                System.out.println("Biemvenido,MODO MULTIJUGADOR");
+                System.out.println(AMARILLO + "Bienvenido, MODO MULTIJUGADOR" + RESET);
                 System.out.println("\n");
                 System.out.println("\n");
 
-                System.out.println("\n----------INICIO DE PARTIDA----------");
+                System.out.println(AMARILLO + "\n----------INICIO DE PARTIDA----------" + RESET);
                 rondasJ1=0;
                 rondasJ2=0;
 
@@ -282,7 +288,7 @@ public class App {
                     System.out.println("\n");
                     System.out.println("\n");
                     System.out.println("\n");
-                    System.out.println("\n---------RONDA "+(i+1)+"---------");
+                    System.out.println(AMARILLO + "\n---------RONDA " + (i + 1) + "---------" + RESET);
                     rondasJ2=rondasJ2+1;
                     rondasJ1=rondasJ1+1;
                     
@@ -290,7 +296,7 @@ public class App {
                     System.out.println("\n");
                     System.out.println("\n");
                     System.out.println("\n");
-                    System.out.println("---------TURNO DEL JUGADOR 1---------");
+                    System.out.println(VERDE + "---------TURNO DEL JUGADOR 1---------" + RESET);
                     System.out.println("\n|");
                     System.out.println("|");
                     System.out.println("v\n");
@@ -319,7 +325,7 @@ public class App {
                     System.out.println("\n");
                     System.out.println("\n");
 
-                    System.out.println("\n---------TURNO DEL JUGADOR 2---------");
+                    System.out.println(ROJO + "\n---------TURNO DEL JUGADOR 2---------" + RESET);
                     System.out.println("\n|");
                     System.out.println("|");
                     System.out.println("v\n");
@@ -346,23 +352,23 @@ public class App {
                             if (opcionJ1==opcionRival) {
                                 //consola elije piedra
                                 empatesTotales=empatesTotales+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Resultado: Empate");
-                                System.out.println("------------------");
+                                System.out.println(AZUL + "\n------------------" + RESET);
+                                System.out.println(AZUL + "Resultado: Empate" + RESET);
+                                System.out.println(AZUL + "------------------" + RESET);
                                 
                             } else if (opcionRival==2) {
                                 //consola elije papel(papel gana contra piedra)
                                 victoriasJ2=victoriasJ2+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR2");
-                                System.out.println("------------------");
+                                System.out.println(ROJO + "\n------------------" + RESET);
+                                System.out.println(ROJO + "Ganador : JUGADOR2" + RESET);
+                                System.out.println(ROJO + "------------------" + RESET);
                                 
                             } else {
                                 //consola elije tijera(tijera pierde contra piedra)
                                 victoriasJ1=victoriasJ1+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR1");
-                                System.out.println("------------------");
+                                System.out.println(VERDE + "\n------------------" + RESET);
+                                System.out.println(VERDE + "Ganador : JUGADOR1" + RESET);
+                                System.out.println(VERDE + "------------------" + RESET);
                                 
                             }
 
@@ -372,23 +378,23 @@ public class App {
                            if (opcionJ1==opcionRival) {
                                 //consola elije papel
                                 empatesTotales=empatesTotales+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Resultado: Empate");
-                                System.out.println("------------------");
+                                System.out.println(AZUL + "\n------------------" + RESET);
+                                System.out.println(AZUL + "Resultado: Empate" + RESET);
+                                System.out.println(AZUL + "------------------" + RESET);
                                     
                             } else if (opcionRival==1) {
                                 //consola elije piedra (piedra pierde contra papel)
                                 victoriasJ1=victoriasJ1+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR1");
-                                System.out.println("------------------");
+                                System.out.println(VERDE + "\n------------------" + RESET);
+                                System.out.println(VERDE + "Ganador : JUGADOR1" + RESET);
+                                System.out.println(VERDE + "------------------" + RESET);
                                     
                             } else {
                                 //consola elije tijera(tijera gana contra papel)
                                 victoriasJ2=victoriasJ2+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR2");
-                                System.out.println("------------------");
+                                System.out.println(ROJO + "\n------------------" + RESET);
+                                System.out.println(ROJO + "Ganador : JUGADOR2" + RESET);
+                                System.out.println(ROJO + "------------------" + RESET);
                                     
                             }
                         
@@ -398,23 +404,23 @@ public class App {
                              if (opcionJ1==opcionRival) {
                                 //consola elige tijera
                                 empatesTotales=empatesTotales+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Resultado: Empate");
-                                System.out.println("------------------");
+                                System.out.println(AZUL + "\n------------------" + RESET);
+                                System.out.println(AZUL + "Resultado: Empate" + RESET);
+                                System.out.println(AZUL + "------------------" + RESET);
                                     
                             } else if (opcionRival==1) {
                                 //consola elije piedra (piedra gana contra tijera)
                                 victoriasJ2=victoriasJ2+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR2");
-                                System.out.println("------------------");
+                                System.out.println(ROJO + "\n------------------" + RESET);
+                                System.out.println(ROJO + "Ganador : JUGADOR2" + RESET);
+                                System.out.println(ROJO + "------------------" + RESET);
                                     
                             } else {
                                 //consola elije papel(papel piedre contra tijera)
                                 victoriasJ1=victoriasJ1+1;
-                                System.out.println("\n------------------");
-                                System.out.println("Ganador : JUGADOR1");
-                                System.out.println("------------------");   
+                                System.out.println(VERDE + "\n------------------" + RESET);
+                                System.out.println(VERDE + "Ganador : JUGADOR1" + RESET);
+                                System.out.println(VERDE + "------------------" + RESET);   
                             }
                             
                         } 
@@ -423,34 +429,34 @@ public class App {
 
 
                     } else{
-                            System.out.println("\nINGRESE SOLO  UN NUMERO DEL 1-3 DE LAS JUGADAS MOSTRADAS,JUGADA PERDIDA ");
+                            System.out.println(ROJO + "\nINGRESE SOLO UN NUMERO DEL 1-3 DE LAS JUGADAS MOSTRADAS, JUGADA PERDIDA" + RESET);
                             System.out.println("\n|");
                             System.out.println("|");
                             System.out.println("v\n");
                     }
 
-                    System.out.println("========================================");
-                    System.out.println("               RESULTADOS");          
-                    System.out.println("========================================");
+                    System.out.println(AMARILLO + "========================================" + RESET);
+                    System.out.println(AMARILLO + "               RESULTADOS               " + RESET);
+                    System.out.println(AMARILLO + "========================================" + RESET);
                     System.out.printf("%-15s %6s %8s%n","EMPATE","JUGADOR1","JUGADOR2");
                     System.out.printf("%-15d %6d %8d%n", empatesTotales, victoriasJ1, victoriasJ2);
 
                     if (victoriasJ1 < victoriasJ2) {
                         historialRondas[i] = 1;
-                        System.out.println("\n-----------------------------------");
-                        System.out.println("---------Victoria: Jugador 2-------");
-                        System.out.println("-----------------------------------");
+                        System.out.println(ROJO + "\n-----------------------------------" + RESET);
+                        System.out.println(ROJO + "---------Victoria: Jugador 2-------" + RESET);
+                        System.out.println(ROJO + "-----------------------------------" + RESET);
                     } else if (victoriasJ2 < victoriasJ1){
                         historialRondas[i] = 2;
-                        System.out.println("\n-------------------------------------");
-                        System.out.println("----------Victoria: Jugador 1--------");
-                        System.out.println("-------------------------------------");
+                        System.out.println(VERDE + "\n-------------------------------------" + RESET);
+                        System.out.println(VERDE + "----------Victoria: Jugador 1--------" + RESET);
+                        System.out.println(VERDE + "-------------------------------------" + RESET);
                         
                     }else {
                         historialRondas[i] = 0;
-                        System.out.println("\n--------------------------");
-                        System.out.println("----------EMPATE----------");
-                        System.out.println("--------------------------");
+                        System.out.println(AZUL + "\n--------------------------" + RESET);
+                        System.out.println(AZUL + "----------EMPATE----------" + RESET);
+                        System.out.println(AZUL + "--------------------------" + RESET);
                     }
                     
                     
@@ -462,28 +468,28 @@ public class App {
                 victoriasGlobalesJ2 = victoriasGlobalesJ2 + victoriasJ2;
 
                 // GANADOR DEFINITIVO 
-                System.out.println("\n========================================");
-                System.out.println("       RESULTADO FINAL DE LA PARTIDA");          
-                System.out.println("========================================");
+                System.out.println(AMARILLO + "\n========================================" + RESET);
+                System.out.println(AMARILLO + "       RESULTADO FINAL DE LA PARTIDA    " + RESET);
+                System.out.println(AMARILLO + "========================================" + RESET);
                 if (victoriasJ1 < victoriasJ2) {
                     resultadoFinal="Victoria JUGADOR2";
-                    System.out.println("¡La JUGADOR2 gana la partida!");
+                    System.out.println(ROJO + "¡El JUGADOR 2 gana la partida!" + RESET);
                     
                     
                 } else if (victoriasJ2 < victoriasJ1) {
                     resultadoFinal="Victoria JUGADOR1";
-                    System.out.println("¡El JUGADOR 1 gana la partida!");
+                    System.out.println(VERDE + "¡El JUGADOR 1 gana la partida!" + RESET);
                 } else {
                     resultadoFinal="EMPATE";
-                    System.out.println("¡La partida termina en EMPATE global!");
+                    System.out.println(AZUL + "¡La partida termina en EMPATE global!" + RESET);
                 }
 
 
             } else if (opcionMenu==3){
                 //estadisticas
-                System.out.println("\n========================================");
-                System.out.println("        ESTADÍSTICAS DE LA SESIÓN");          
-                System.out.println("========================================");
+                System.out.println(AMARILLO + "\n========================================" + RESET);
+                System.out.println(AMARILLO + "        ESTADÍSTICAS DE LA SESIÓN       " + RESET);
+                System.out.println(AMARILLO + "========================================" + RESET);
                 System.out.println("--- RESUMEN GLOBAL ---");
                 System.out.println("Partidas totales jugadas: "+partidasTotales);
                 System.out.println(" - Modo Solitario (vs Consola): "+partidasSolitario);
@@ -532,17 +538,17 @@ public class App {
                 }
 
                 // GANADOR DEFINITIVO PARTIDA
-                System.out.println("\n========================================");
-                System.out.println("       RESULTADO FINAL: "+resultadoFinal);          
-                System.out.println("========================================");
+                System.out.println(AMARILLO + "\n========================================" + RESET);
+                System.out.println(AMARILLO + "       RESULTADO FINAL: " + resultadoFinal + RESET);
+                System.out.println(AMARILLO + "========================================" + RESET);
                 
 
               
             } else if (opcionMenu==4){
                 //reglas
-                System.out.println("\n=====================================================");
-                System.out.println("                   REGLAS DEL JUEGO                  ");
-                System.out.println("=====================================================");
+                System.out.println(AZUL + "\n=====================================================" + RESET);
+                System.out.println(AZUL + "                   REGLAS DEL JUEGO                  " + RESET);
+                System.out.println(AZUL + "=====================================================" + RESET);
                 System.out.println("1. El juego es un duelo al mejor de 3 rondas.");
                 System.out.println("2. Gana la partida quien consiga 2 victorias primero.");
                 System.out.println("3. En cada ronda debes elegir una opción:");
@@ -554,10 +560,12 @@ public class App {
                 System.out.println("   - La Tijera corta el Papel.");
                 System.out.println("   - El Papel envuelve a la Piedra.");
                 System.out.println("   - Si ambos eligen lo mismo, hay empate.");
-                System.out.println("=====================================================");
+                System.out.println(AZUL + "=====================================================" + RESET);
               
-            } else {
-                System.out.println("\nINGRESE SOLO  UN NUMERO DEL 1-5 DE LAS OPCIONES MOSTRADAS,INTENTE OTRA VEZ ");
+            } else if (opcionMenu==5){
+
+            }else {
+                System.out.println(ROJO + "\nINGRESE SOLO UN NUMERO DEL 1-5 DE LAS OPCIONES MOSTRADAS, INTENTE OTRA VEZ " + RESET);
                 System.out.println("\n|");
                 System.out.println("|");
                 System.out.println("v\n");
@@ -566,7 +574,7 @@ public class App {
             
         } while (opcionMenu!=5);
 
-        System.out.println("\nUSTED A SALIDO DEL JUEGO");
+        System.out.println(VERDE + "\nUSTED HA SALIDO DEL JUEGO" + RESET);
 
         scanner.close();
 
